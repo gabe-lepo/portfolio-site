@@ -1,6 +1,4 @@
-import { Navbar } from "react-bootstrap"
-import { Container } from "react-bootstrap"
-import { Nav } from "react-bootstrap"
+import { Navbar, Container, Nav } from "react-bootstrap"
 
 export default function NavBar() {
    return(
