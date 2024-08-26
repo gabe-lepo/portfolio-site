@@ -1,15 +1,15 @@
 interface HeroProps {
-   title: string;
-   subtitle: string;
-   classes?: string;
+   title: string
+   subtitle: string
+   classes?: string
 }
 
-export default function PageHero({title, subtitle, classes}: HeroProps) {
+export default function PageHero(props: HeroProps) {
    return(
-      <section className={`hero ${classes}`}>
+      <section className={`hero ${props.classes}`}>
          <div className="hero-body">
-            <p className="title has-text-weight-bold">{title}</p>
-            <p className="subtitle has-text-weight-light">{subtitle}</p>
+            <p className="title has-text-weight-bold">{props.title}</p>
+            <p className="subtitle has-text-weight-light">{props.subtitle}</p>
          </div>
       </section>
    )
