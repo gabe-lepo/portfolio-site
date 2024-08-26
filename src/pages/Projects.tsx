@@ -1,7 +1,9 @@
+import PageHero from "../components/PageHero";
+
 export default function Projects() {
    return(
       <>
-         <h1>Projects</h1>
+         <PageHero title="Projects" subtitle="Some personal projects" classes="is-link" />
       </>
    );
 };

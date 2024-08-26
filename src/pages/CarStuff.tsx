@@ -1,7 +1,9 @@
+import PageHero from "../components/PageHero";
+
 export default function CarStuff() {
    return(
       <>
-         <h1>Car Stuff</h1>
+         <PageHero title="Car Stuff" subtitle="Car videos!" classes="is-link" />
       </>
    );
 };

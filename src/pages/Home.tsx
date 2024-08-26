@@ -1,7 +1,9 @@
+import PageHero from "../components/PageHero";
+
 export default function Home() {
    return(
       <>
-         <h1>Home</h1>
+         <PageHero title="Home" subtitle="Base page" classes="is-link"/>
       </>
    );
 };
