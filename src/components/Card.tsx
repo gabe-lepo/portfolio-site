@@ -23,6 +23,7 @@ export default function Card(props: CardProps) {
                   <p className="subtitle is-6">{props.subtitle}</p>
                </div>
             </div>
+            <hr />
             <div className="content">
                {props.children}
             </div>
