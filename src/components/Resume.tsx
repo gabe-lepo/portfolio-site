@@ -46,24 +46,44 @@ export default function Resume() {
    }
 
    return(
-      <div className="" ref={setContainerRef}>
-         <div className="box has-text-centered">
-            <button className="button is-primary" onClick={previousPage} disabled={currentPage <= 1}>
-               {"<"}
-            </button>
-            <span className="">
-               Page {currentPage} of {numPages}
-            </span>
-            <button className="button is-primary" onClick={nextPage} disabled={currentPage >= (numPages || 0)}>
-               {">"}
-            </button>
+      <div className="card">
+         <div className="card-content">
+            <div className="media">
+               <div className="media-left">
+                  <figure className="image is-64x64">
+                     <img src="/favicon.ico" alt="Missing icon" />
+                  </figure>
+               </div>
+               <div className="media-content">
+                  <p className="title is-4">Resume</p>
+                  <p className="subtitle is-6">My old, long-form resume</p>
+               </div>
+            </div>
+            <hr />
+            <div className="content" ref={setContainerRef}>
+               <Document file={'/resume.pdf'} onLoadSuccess={onDocumentLoadSuccess}>
+                  <Page
+                     pageNumber={currentPage}
+                     width={containerWidth ? Math.min(containerWidth, maxWidth) : maxWidth}
+                  />
+               </Document>
+            </div>
          </div>
-         <Document file={'/resume.pdf'} onLoadSuccess={onDocumentLoadSuccess}>
-            <Page
-               pageNumber={currentPage}
-               width={containerWidth ? Math.min(containerWidth, maxWidth) : maxWidth}
-            />
-         </Document>
+         <div className="card-footer has-background-warning has-text-dark has-text-weight-bold">
+            <div className="card-footer-item">
+               <button className="button is-dark-grey" onClick={previousPage} disabled={currentPage <= 1}>
+                  {"<"}
+               </button>
+            </div>
+            <div className="card-footer-item">
+               Page {currentPage} of {numPages}
+            </div>
+            <div className="card-footer-item">
+               <button className="button is-dark-grey" onClick={nextPage} disabled={currentPage >= (numPages || 0)}>
+                  {">"}
+               </button>
+            </div>
+         </div>
       </div>
    )
 }
