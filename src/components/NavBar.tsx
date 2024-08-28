@@ -1,23 +1,36 @@
-import { useLocation } from "react-router-dom"
+import React from "react"
+import "../css/buttonHover.css"
 
-export default function NavBar() {
-   const locationPath = useLocation().pathname
+interface NavBarProps {
+   selectedPage: "home" | "projects" | "carstuff"
+   setSelectedPage: React.Dispatch<React.SetStateAction<"home" | "projects" | "carstuff">>
+}
 
+export default function NavBar({selectedPage, setSelectedPage}: NavBarProps) {
    return(
       <div className="navbar is-fixed-top is-dark" role="navigation" aria-label="main navigation">
          <div className="navbar-brand">
-            <a
-               className={`navbar-item ${locationPath === "/" ? "has-background-grey-dark has-text-weight-bold" : ""}`}
-               href="/"
-            >Home</a>
-            <a
-               className={`navbar-item ${locationPath === "/projects" ? "has-background-grey-dark has-text-weight-bold" : ""}`}
-               href="/projects"
-            >Projects</a>
-            <a
-               className={`navbar-item ${locationPath === "/carstuff" ? "has-background-grey-dark has-text-weight-bold" : ""}`}
-               href="/carstuff"
-            >Car Stuff</a>
+            <button
+               className={
+                  `navbar-item hoverable
+                  ${selectedPage === "home" ? "has-background-grey-dark has-text-weight-bold" : ""}`
+               }
+               onClick={() => setSelectedPage("home")}
+            >Home</button>
+            <button
+               className={
+                  `navbar-item hoverable
+                  ${selectedPage === "projects" ? "has-background-grey-dark has-text-weight-bold" : ""}`
+               }
+               onClick={() => setSelectedPage("projects")}
+            >Projects</button>
+            <button
+               className={
+                  `navbar-item hoverable
+                  ${selectedPage === "carstuff" ? "has-background-grey-dark has-text-weight-bold" : ""}`
+               }
+               onClick={() => setSelectedPage("carstuff")}
+            >Car Stuff</button>
          </div>
       </div>
    )

@@ -1,20 +1,31 @@
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom"
+import { useState } from "react"
 import NavBar from "./components/NavBar"
 import Home from "./pages/Home"
 import Projects from "./pages/Projects"
 import CarStuff from "./pages/CarStuff"
 
 function App() {
+  const [selectedPage, setSelectedPage] = useState<"home" | "projects" | "carstuff">("home")
+
+  function renderPage() {
+    switch (selectedPage) {
+      case "home":
+        return <Home />
+      case "projects":
+        return <Projects />
+      case "carstuff":
+        return <CarStuff />
+      default:
+        return <Home />
+    }
+  }
+
   return (
-    <Router>
-      <NavBar />
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/projects" element={<Projects />} />
-        <Route path="/carstuff" element={<CarStuff />} />
-      </Routes>
-    </Router>
-  );
+    <>
+      <NavBar selectedPage={selectedPage} setSelectedPage={setSelectedPage} />
+      {renderPage()}
+    </>
+  )
 }
 
 export default App;

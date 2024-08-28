@@ -1,4 +1,3 @@
-// import Card from "../components/Card";
 import PageHero from "../components/PageHero";
 import Resume from "../components/Resume";
 
